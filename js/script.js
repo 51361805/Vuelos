@@ -22,7 +22,6 @@ if (window.innerWidth < 760) {
     side_menu.classList.add("menu__side_move");
 }
 
-/*
 //Haciendo el menú responsive(adaptable)
 
 window.addEventListener("resize", function () {
@@ -78,14 +77,14 @@ function ocultarModal() {
 
     // Ocultar la ventana modal
     modal.style.display = "none";
-}/*/
+}
 
 
 //apartir de esta linea  de codigo se aplica lo dado en clase, el codigo anterior es necesario para 
 //el  menu responsive y 
 // para darle estructura al sitio web.
 
-
+document.addEventListener("DOMContentLoaded", function(event) {
 
 let nombre = prompt("¿Cómo te llamas?");
 
@@ -106,8 +105,14 @@ if (pais.toLowerCase() === "uruguay") {
         alert("Por favor, selecciona un país disponible para viajar.");
     }
 
+
+
+
 } else if (pais.toLowerCase() === "argentina") {
 
+
+
+    
     let destino = prompt(`Los países que tenemos disponibles desde tu ubicación son Chile o China. ¿A cuál de estos países te gustaría viajar, ${nombre}?`);
 
     if (destino.toLowerCase() === "chile" || destino.toLowerCase() === "china") {
@@ -122,8 +127,9 @@ if (pais.toLowerCase() === "uruguay") {
     }
 
 } else {
+    
     alert("Lo siento, el país que ingresaste no está disponible para viajar.");
 }
 
-
+});
 
