@@ -35,7 +35,7 @@
                     <h4>Inicio</h4>
                 </div>
             </a>
-          
+
 
             <a href="#">
                 <div class="option">
@@ -53,7 +53,7 @@
 
             <a href="./pages/resumen.html">
                 <div class="option">
-                    <i class="fa-solid fa-cart-shopping" title="Compra"></i>
+                    <i class="fa-solid fa-cart-shopping" id="numerito" title="Compra">1</i>
                     <h4>Compra</h4>
                 </div>
             </a>
@@ -70,6 +70,7 @@
                     <i class="fa-solid fa-phone"></i>
                     <h4>Contacto</h4>
                 </div>
+
             </a>
 
         </div>
@@ -80,14 +81,14 @@
         <h1 class="titulo">Busqueda de Vuelos Ignacio Bon</h1>
 
 
-
         <form class="decoracion" action="">
 
             <label class="radiolabel">
                 <input type="radio" name="opcion" value="opcion1"> Solo Ida
             </label>
             <label class="radiolabel">
-                <input type="radio" name="opcion" value="opcion2"> Ida y Vuelta
+                <input type="radio" name="opcion" value="opcion2" checked> Ida y Vuelta
+
             </label>
             <br>
 
@@ -99,10 +100,9 @@
                 <option value="Estados Unidos">Estados Unidos</option>
                 <option value="España">España</option>
                 <option value="Francia">Francia</option>
+                <option value="Uruguay">Uruguay</option>
                 <!-- Agrega más opciones aquí -->
             </select>
-
-
 
             <label for="destino"></label>
             <select id="destino" class="lugar destino" name="destino">
@@ -112,99 +112,40 @@
                 <option value="Estados Unidos">Estados Unidos</option>
                 <option value="España">España</option>
                 <option value="Francia">Francia</option>
+                <option value="Uruguay">Uruguay</option>
+
                 <!-- Agrega más opciones aquí -->
             </select>
 
-
-
-
-
-            <input class=" lugar fecha ida" type="date">
+            <input id="fechaDeIda" class=" lugar fecha ida" type="date">
             <input id="elemento-a-ocultar" class=" lugar fecha vuelta" type="date">
             <input class="lugar buscar" type="submit" value="Busca Vuelos">
         </form>
 
 
-        <div class="bloque-mapa">
-            <div class="centro">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <table class="table table-earnings table-earnings__challenge">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Descripcion</th>
+                                <th>Origen</th>
+                                <th>Destino</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenedorVuelosD">
 
 
-                <iframe class="mapa-lugar"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58876126.16859688!2d-10.962912676526626!3d-25.753595342808737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2suy!4v1678819317380!5m2!1ses-419!2suy"
-                    height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-
-            </div>
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-xs-8">
-                        <table class="table table-earnings table-earnings__challenge">
-                            <thead>
-                                <tr>
-                                    <th>Destino</th>
-                                    <th>Descripcion</th>
-                                    <th>Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-
-                                    <td>
-                                        <img class="imglugar" src="./img/brasil.jpg" alt="">
-                                    </td>
-                                    <td>Montevideo-Uruguay a florianopolis Por Persona vuelo ida y vuelta</td>
-                                    <td><button>Comprar USD650</button></td>
-
-                                </tr>
-
-
-
-                                <tr>
-                                    <td>
-                                        <img class="imglugar" src="./img/brasil.jpg" alt="">
-                                    </td>
-                                    <td>Montevideo-Uruguay a florianopolis Por Persona vuelo ida y vuelta</td>
-                                    <td><button>Comprar USD650</button></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>
-                                        <img class="imglugar" src="./img/brasil.jpg" alt="">
-                                    </td>
-                                    <td>Montevideo-Uruguay a florianopolis Por Persona vuelo ida y vuelta</td>
-                                    <td><button>Comprar USD650</button></td>
-                                </tr>
-
-
-
-                                <tr>
-                                    <td>
-                                        <img class="imglugar" src="./img/brasil.jpg" alt="">
-                                    </td>
-                                    <td>Montevideo-Uruguay a florianopolis Por Persona vuelo ida y vuelta</td>
-                                    <td><button>Comprar USD650</button></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>
-                                        <img class="imglugar" src="./img/brasil.jpg" alt="">
-                                    </td>
-                                    <td>Montevideo-Uruguay a florianopolis Por Persona vuelo ida y vuelta</td>
-                                    <td><button>Comprar USD650</button></td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
 
         </div>
 
@@ -331,80 +272,9 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
-
-
+    <script src="js/carrito.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -414,7 +284,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+
     <script src="https://kit.fontawesome.com/1cd972ff5a.js" crossorigin="anonymous"></script>
 
 </body>

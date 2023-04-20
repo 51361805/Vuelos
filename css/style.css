@@ -49,11 +49,11 @@ header {
 .menu__side {
     width: 70px;
     height: 100%;
-    background: #ffffff47;
+
     position: fixed;
     top: 0;
     left: 0;
-    color: white;
+
     font-size: 18px;
     z-index: 300;
     overflow: hidden;
@@ -266,7 +266,7 @@ h4 {
 .bloque-mapa {
     display: flex;
     width: 100%;
-   
+    justify-content: center;
     margin-top: 30px;
 }
 
@@ -283,7 +283,7 @@ table {
     overflow-y: auto;
     max-width: 100%;
     overflow-x: hidden;
-    
+
 }
 
 
@@ -293,7 +293,7 @@ table {
 @media (max-width: 680px) {
     .bloque-mapa {
         flex-wrap: wrap;
-       
+
     }
 
 }
@@ -715,12 +715,128 @@ td {
 
 }
 
-.container
- {
+.container {
     padding: 0;
 
 }
 
-.row{
+.row {
     margin-left: 0;
 }
+
+
+
+
+
+.compra-resumen h2.titulo {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.compra-precio {
+    color: #3e8e41;
+}
+
+.compra-resumen h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.compra-resumen h4 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.compra-info {
+    margin-top: 20px;
+    display: flex;
+}
+
+.compra-info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+@media (max-width:520px) {
+    .compra-info {
+        flex-wrap: wrap;
+    }
+
+}
+
+.compra-info p span {
+    font-weight: bold;
+}
+
+.compra-input-personas,
+.compra-input-equipaje,
+.compra-input-menores,
+.compra-input-mascotas,
+.compra-input-maletas,
+.compra-input-dias-auto,
+.compra-input-dias-hotel,
+.compra-input-nombres,
+.compra-input-documentos {
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.compra-info input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+
+.compra-info select {
+    width: 100px;
+}
+
+.compra-descarga {
+    margin-top: 20px;
+}
+
+.compra-descarga h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.compra-descarga a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.compra-descarga a:hover {
+    background-color: #3e8e41;
+}
+
+.izquierdo {
+   
+    background-color: #f7f7f700;
+    border: 1px solid #1f1e1e;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.rst {
+    text-align: center;
+}
+
+.comprarVuelo {
+    background-color: #0071C2;
+    color: white;
+    padding: 5px;
+}
+.comprarVuelo:hover{
+    background-color: #2f5a79;
+}
+
