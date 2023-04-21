@@ -239,8 +239,8 @@ h4 {
 }
 
 .imglugar {
-    height: 100px;
-    max-width: 100px;
+   
+   
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 
@@ -667,7 +667,7 @@ ul {
 
 .imglugar {
 
-    max-width: 120px;
+    max-width: 200px;
 }
 
 .fixed-background {
@@ -818,7 +818,7 @@ td {
 }
 
 .izquierdo {
-   
+
     background-color: #f7f7f700;
     border: 1px solid #1f1e1e;
     border-radius: 5px;
@@ -836,7 +836,154 @@ td {
     color: white;
     padding: 5px;
 }
-.comprarVuelo:hover{
+
+.comprarVuelo:hover {
     background-color: #2f5a79;
 }
 
+
+.producto-agregar {
+    background-color: #08c;
+    border-radius: 10px;
+
+}
+
+.producto-agregar:hover {
+    background-color: rgb(55, 106, 132);
+}
+
+.eliminar-vuelo{
+    background-color: #ad2626;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border: solid 1px;
+    cursor: pointer;
+    color: white;
+
+}
+
+.descargar-boletos {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    display: none;
+  }
+  
+  tbody {
+    display: block;
+  }
+  
+  tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  td {
+    padding: 10px;
+  }
+  
+  td:nth-child(1) {
+    order: 1;
+    margin-bottom: 10px;
+  }
+  
+  td:nth-child(2) {
+    order: 2;
+  }
+  
+  td:nth-child(3) {
+    order: 3;
+  }
+  
+  td:nth-child(4) {
+    order: 4;
+  }
+  
+  td:nth-child(5) {
+    order: 5;
+  }
+  
+  @media screen and (min-width: 450px) {
+    tbody {
+      display: table-row-group;
+    }
+    
+    tr {
+      display: table-row;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    
+    td {
+      display: table-cell;
+      padding: 10px;
+    }
+    
+    td:nth-child(1) {
+      order: initial;
+      margin-bottom: 0;
+      width: 100px;
+    }
+    
+    td:nth-child(2) {
+      order: initial;
+    }
+    
+    td:nth-child(3) {
+      order: initial;
+    }
+    
+    td:nth-child(4) {
+      order: initial;
+    }
+    
+    td:nth-child(5) {
+      order: initial;
+    }
+  }
+  
+  @media only screen and (max-width:300px) {
+    table {
+      width: 100%;
+    }
+    td {
+      display: block;
+      width: 100%;
+    }
+    
+    .imglugar {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+    .producto-agregar {
+      margin-top: 10px;
+    }
+  }
+  
+
+  .dviajedes{
+    font-size: 14px;
+  }

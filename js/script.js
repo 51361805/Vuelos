@@ -154,9 +154,9 @@ const productos = [
         id: "viaje-01",
         origen: "Uruguay",
         destino: "Argentina",
-        imagen: "./img/brasil.jpg",
+        imagen: "./img/buenos-aires.jpg",
         precio: "1740",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Disfruta de una escapada de fin de semana en Buenos Aires, la ciudad de la furia. Con este vuelo podrás conocer la cultura, historia y gastronomía porteña de la mano de los expertos locales. No te pierdas de sus atractivos turísticos como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más."
     },
     {
         id: "viaje-02",
@@ -164,15 +164,15 @@ const productos = [
         destino: "Francia",
         imagen: "./img/brasil.jpg",
         precio: "1250",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Descubre la ciudad de la luz con este vuelo a París. Enamórate de sus atractivos turísticos como la Torre Eiffel, el Museo del Louvre, la Catedral de Notre-Dame, el Arco del Triunfo y muchos más. Además, podrás disfrutar de la deliciosa gastronomía francesa y su rica cultura."
     },
     {
         id: "viaje-03",
         origen: "Argentina",
         destino: "Brasil",
-        imagen: "./img/brasil.jpg",
+        imagen: "./img/losangeles.jpg",
         precio: "1350",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Vuela a Brasil y descubre la magia de Río de Janeiro, la ciudad maravillosa. Podrás disfrutar de sus hermosas playas, como Copacabana e Ipanema, su increíble Carnaval, su famosa estatua del Cristo Redentor y mucho más. Además, la rica gastronomía brasileña te sorprenderá."
     },
     {
         id: "viaje-04",
@@ -180,43 +180,44 @@ const productos = [
         destino: "Argentina",
         imagen: "./img/brasil.jpg",
         precio: "1250",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Conoce la Patagonia Argentina, una de las regiones más espectaculares del mundo, con este vuelo a Bariloche. Podrás disfrutar de sus impresionantes paisajes de montañas, bosques y lagos, así como de su deliciosa gastronomía y actividades al aire libre como el esquí y el trekking."
     },
     {
         id: "viaje-05",
         origen: "Francia",
         destino: "Argentina",
-        imagen: "./img/brasil.jpg",
+        imagen: "./img/denver.jpg",
         precio: "850",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Descubre Argentina con este vuelo a Buenos Aires, la capital del tango. Podrás disfrutar de su rica cultura, su vibrante vida nocturna y su deliciosa gastronomía. No te pierdas de los atractivos turísticos como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más."
     },
     {
         id: "viaje-06",
         origen: "Colombia",
-        destino: "Argentina",
-        imagen: "./img/brasil.jpg",
+        destino: "./img/florianopolis3.jpg",
+        imagen: "./img/orlando.jpg",
         precio: "450",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     },
     {
         id: "viaje-07",
         origen: "Argentina",
         destino: "Colombia",
-        imagen: "./img/brasil.jpg",
+        imagen: "./img/florianopolis4.jpg",
         precio: "750",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     },
     {
         id: "viaje-08",
         origen: "Uruguay",
         destino: "Argentina",
-        imagen: "./img/brasil.jpg",
+        imagen: "./img/lima.jpg",
         precio: "650",
-        descripcion: "disfruta del vuelo"
+        descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     }
 ];
 
 let botonesAgregar = document.querySelectorAll(".producto-agregar")
+
 const contenedorViajes = document.querySelector("#contenedorVuelosD");
 
 function cargarProductos() {
@@ -225,12 +226,14 @@ function cargarProductos() {
         const tr = document.createElement("tr");
         tr.classList.add("viaje");
         tr.innerHTML = `
+
         <td><img class="imglugar" src="${producto.imagen}" alt="destino"></td>
-        <td>${producto.descripcion}</td>
+        <td class= "dviajedes" >${producto.descripcion}</td>
         <td>${producto.origen}</td>
         <td>${producto.destino}</td>
         <td><button id="${producto.id}" class="producto-agregar">Comprar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
       `;
+
         contenedorViajes.appendChild(tr);
     });
     actualizarBotonesAgregar();
@@ -239,24 +242,34 @@ function cargarProductos() {
 cargarProductos();
 
 
-
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
+
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", agregarVuelo);
     });
 }
 const productosEnCarritos = [];
 
-
 function agregarVuelo(e) {
     const idBoton = e.currentTarget.id;
+
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
     if (productosEnCarritos.some(producto => producto.id === idBoton)) {
+
         alert("Este producto ya se encuentra en el carrito");
+
     } else {
-        productosEnCarritos.push(productoAgregado);
-        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarritos));
+
+        let productosEnCarritoGuardados = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
+
+        productosEnCarritoGuardados.push(productoAgregado);
+
+        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarritoGuardados));
+        alert("Tienes Un Vuelo Pendiente En El Carrito");
+
+        productoEnCarrito .push(productoAgregado);
     }
 }
+
