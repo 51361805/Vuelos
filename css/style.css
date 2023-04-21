@@ -239,8 +239,8 @@ h4 {
 }
 
 .imglugar {
-   
-   
+
+
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 
@@ -517,13 +517,13 @@ ul {
     display: inline-block;
 }
 
-.img-auto {
-    display: flex;
-    justify-content: center;
-}
+
 
 .iconoauto {
-    max-width: 250px;
+    max-width: 400px;
+    margin: 10px;
+    border-radius: 10px;
+    height: auto;
 }
 
 .flex-auto {
@@ -822,7 +822,7 @@ td {
     background-color: #f7f7f700;
     border: 1px solid #1f1e1e;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
@@ -831,19 +831,14 @@ td {
     text-align: center;
 }
 
-.comprarVuelo {
-    background-color: #0071C2;
-    color: white;
-    padding: 5px;
-}
 
 .comprarVuelo:hover {
-    background-color: #2f5a79;
+  background-color: #130cc75c;;
 }
 
 
 .producto-agregar {
-    background-color: #08c;
+    background-color: #2422625c;;
     border-radius: 10px;
 
 }
@@ -852,7 +847,7 @@ td {
     background-color: rgb(55, 106, 132);
 }
 
-.eliminar-vuelo{
+.eliminar-vuelo {
     background-color: #ad2626;
     border-radius: 10px;
     padding: 10px 20px;
@@ -877,113 +872,164 @@ td {
     cursor: pointer;
     border-radius: 10px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  thead {
+}
+
+thead {
     display: none;
-  }
-  
-  tbody {
+}
+
+tbody {
     display: block;
-  }
-  
-  tr {
+}
+
+tr {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
-  }
-  
-  td {
+}
+
+td {
     padding: 10px;
-  }
-  
-  td:nth-child(1) {
+}
+
+td:nth-child(1) {
     order: 1;
     margin-bottom: 10px;
-  }
-  
-  td:nth-child(2) {
+}
+
+td:nth-child(2) {
     order: 2;
-  }
-  
-  td:nth-child(3) {
+}
+
+td:nth-child(3) {
     order: 3;
-  }
-  
-  td:nth-child(4) {
+}
+
+td:nth-child(4) {
     order: 4;
-  }
-  
-  td:nth-child(5) {
+}
+
+td:nth-child(5) {
     order: 5;
-  }
-  
-  @media screen and (min-width: 450px) {
+}
+
+@media screen and (min-width: 450px) {
     tbody {
-      display: table-row-group;
+        display: table-row-group;
     }
-    
+
     tr {
-      display: table-row;
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
+        display: table-row;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
-    
+
     td {
-      display: table-cell;
-      padding: 10px;
+        display: table-cell;
+        padding: 10px;
     }
-    
+
     td:nth-child(1) {
-      order: initial;
-      margin-bottom: 0;
-      width: 100px;
+        order: initial;
+        margin-bottom: 0;
+        width: 100px;
     }
-    
+
     td:nth-child(2) {
-      order: initial;
+        order: initial;
     }
-    
+
     td:nth-child(3) {
-      order: initial;
+        order: initial;
     }
-    
+
     td:nth-child(4) {
-      order: initial;
+        order: initial;
     }
-    
+
     td:nth-child(5) {
-      order: initial;
+        order: initial;
     }
-  }
-  
-  @media only screen and (max-width:300px) {
+}
+
+@media only screen and (max-width:300px) {
     table {
-      width: 100%;
+        width: 100%;
     }
+
     td {
-      display: block;
-      width: 100%;
+        display: block;
+        width: 100%;
     }
-    
+
     .imglugar {
         display: block;
         margin: 0 auto;
         width: 100%;
         height: auto;
     }
-    .producto-agregar {
-      margin-top: 10px;
-    }
-  }
-  
 
-  .dviajedes{
+    .producto-agregar {
+        margin-top: 10px;
+    }
+}
+
+
+.dviajedes {
     font-size: 14px;
-  }
+}
+
+.imgcarritook{
+    max-height: 400px;
+    width: auto;
+    border-radius: 5px;
+
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.50);
+    margin: 10px;
+}
+
+
+@media (max-width:550px) {
+    .imgcarritook ,.iconoauto{
+       width: 100%;
+       padding: 10px;
+       padding-left: -10px;
+    }
+
+}
+
+.compra-origen ,.compra-destino{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.comprarVuelo {
+    background-color: #0071C2;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.total-precio{
+    background-color: #4CAF50;
+    padding: 5px 20px;
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+    color: white;
+}

@@ -79,13 +79,6 @@ function ocultarModal() {
 }
 
 
-
-//apartir de esta linea  de codigo se aplica lo dado en clase, el codigo anterior es necesario para 
-//el  menu responsive y 
-// para darle estructura al sitio web.
-
-
-
 // Seleccionar elementos del DOM
 const origen = document.getElementById('origen');
 const destino = document.getElementById('destino');
@@ -154,7 +147,8 @@ const productos = [
         id: "viaje-01",
         origen: "Uruguay",
         destino: "Argentina",
-        imagen: "./img/buenos-aires.jpg",
+        imagen: "../img/buenos-aires.jpg",
+        imagen2: "/img/buenos-aires.jpg",
         precio: "1740",
         descripcion: "Disfruta de una escapada de fin de semana en Buenos Aires, la ciudad de la furia. Con este vuelo podrás conocer la cultura, historia y gastronomía porteña de la mano de los expertos locales. No te pierdas de sus atractivos turísticos como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más."
     },
@@ -162,7 +156,8 @@ const productos = [
         id: "viaje-02",
         origen: "Uruguay",
         destino: "Francia",
-        imagen: "./img/brasil.jpg",
+        imagen: "../img/brasil.jpg",
+        imagen2: "/img/brasil.jpg",
         precio: "1250",
         descripcion: "Descubre la ciudad de la luz con este vuelo a París. Enamórate de sus atractivos turísticos como la Torre Eiffel, el Museo del Louvre, la Catedral de Notre-Dame, el Arco del Triunfo y muchos más. Además, podrás disfrutar de la deliciosa gastronomía francesa y su rica cultura."
     },
@@ -170,7 +165,8 @@ const productos = [
         id: "viaje-03",
         origen: "Argentina",
         destino: "Brasil",
-        imagen: "./img/losangeles.jpg",
+        imagen: "../img/losangeles.jpg",
+        imagen2: "/img/losangeles.jpg",
         precio: "1350",
         descripcion: "Vuela a Brasil y descubre la magia de Río de Janeiro, la ciudad maravillosa. Podrás disfrutar de sus hermosas playas, como Copacabana e Ipanema, su increíble Carnaval, su famosa estatua del Cristo Redentor y mucho más. Además, la rica gastronomía brasileña te sorprenderá."
     },
@@ -178,7 +174,8 @@ const productos = [
         id: "viaje-04",
         origen: "Chile",
         destino: "Argentina",
-        imagen: "./img/brasil.jpg",
+        imagen: "../img/brasil.jpg",
+        imagen2: "/img/brasil.jpg",
         precio: "1250",
         descripcion: "Conoce la Patagonia Argentina, una de las regiones más espectaculares del mundo, con este vuelo a Bariloche. Podrás disfrutar de sus impresionantes paisajes de montañas, bosques y lagos, así como de su deliciosa gastronomía y actividades al aire libre como el esquí y el trekking."
     },
@@ -186,23 +183,26 @@ const productos = [
         id: "viaje-05",
         origen: "Francia",
         destino: "Argentina",
-        imagen: "./img/denver.jpg",
+        imagen: "../img/denver.jpg",
+        imagen2: "/img/denver.jpg",
         precio: "850",
         descripcion: "Descubre Argentina con este vuelo a Buenos Aires, la capital del tango. Podrás disfrutar de su rica cultura, su vibrante vida nocturna y su deliciosa gastronomía. No te pierdas de los atractivos turísticos como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más."
     },
     {
         id: "viaje-06",
         origen: "Colombia",
-        destino: "./img/florianopolis3.jpg",
-        imagen: "./img/orlando.jpg",
+        destino: "chile",
+        imagen: "../img/orlando.jpg",
+        imagen2: "/img/orlando.jpg",
         precio: "450",
         descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     },
     {
-        id: "viaje-07",
+        id: "viaje-07", 
         origen: "Argentina",
         destino: "Colombia",
-        imagen: "./img/florianopolis4.jpg",
+        imagen: "../img/florianopolis4.jpg",
+        imagen2: "/img/florianopolis4.jpg",
         precio: "750",
         descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     },
@@ -210,7 +210,8 @@ const productos = [
         id: "viaje-08",
         origen: "Uruguay",
         destino: "Argentina",
-        imagen: "./img/lima.jpg",
+        imagen: "../img/lima.jpg",
+        imagen2: "/img/lima.jpg",
         precio: "650",
         descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     }
@@ -231,11 +232,12 @@ function cargarProductos() {
         <td class= "dviajedes" >${producto.descripcion}</td>
         <td>${producto.origen}</td>
         <td>${producto.destino}</td>
-        <td><button id="${producto.id}" class="producto-agregar">Comprar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
+        <td><button id="${producto.id}" class="producto-agregar comprarVuelo">Comprar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
       `;
 
         contenedorViajes.appendChild(tr);
     });
+    
     actualizarBotonesAgregar();
 }
 
@@ -272,4 +274,30 @@ function agregarVuelo(e) {
         productoEnCarrito .push(productoAgregado);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
