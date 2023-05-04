@@ -130,11 +130,29 @@ function agregarAutoAlCarrito(e) {
     const autoAgregado = autos.find(auto => auto.id === idBoton);
 
     if (autosEnCarrito.some(auto => auto.id === idBoton)) {
-        alert("Este auto ya se encuentra en el carrito");
+    
+        Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Reserva previa encontrada',
+            showConfirmButton: false,
+            timer: 1500
+        })
+       
     } else {
+
         autosEnCarrito.push(autoAgregado);
         localStorage.setItem("autos-en-carrito", JSON.stringify(autosEnCarrito));
-        alert("Tienes un auto pendiente en el carrito");
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Reserva exitosa.',
+            showConfirmButton: false,
+            timer: 1500
+        })
+       
+      
     }
 }
   })

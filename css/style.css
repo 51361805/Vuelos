@@ -1033,3 +1033,18 @@ td:nth-child(5) {
     margin: 10px;
     color: white;
 }
+
+.compra-precio-total{
+    font-size: 25PX;
+    color: red;
+    font-weight: 600;
+}
+
+.totviaje{
+    font-size: 25px;
+    color: red;
+}
+.compra-origen , .compra-destino{
+    font-size: 20px;
+    color: red;
+}
