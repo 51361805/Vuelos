@@ -141,7 +141,6 @@ function validarOpcionIdaVuelta() {
 
 
 
-
 const productos = [
     {
         id: "viaje-01",
@@ -216,11 +215,16 @@ const productos = [
         precio: "650",
         descripcion: "Vuela a Buenos Aires desde Colombia y descubre la rica cultura, la deliciosa gastronomía y los atractivos turísticos de la capital del tango. Podrás conocer lugares como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más. ¡No"
     }
+
+
 ];
+
+
 
 let botonesAgregar = document.querySelectorAll(".producto-agregar")
 
 const contenedorViajes = document.querySelector("#contenedorVuelosD");
+
 
 function cargarProductos() {
 
@@ -233,11 +237,14 @@ function cargarProductos() {
         <td class= "dviajedes" >${producto.descripcion}</td>
         <td>${producto.origen}</td>
         <td>${producto.destino}</td>
-        <td><button id="${producto.id}" class="producto-agregar comprarVuelo">Comprar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
+        <td><button id="${producto.id}" class="producto-agregar comprarVuelo">Reservar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
       `;
 
         contenedorViajes.appendChild(tr);
+
+
     });
+
 
     actualizarBotonesAgregar();
 }
@@ -255,35 +262,30 @@ function actualizarBotonesAgregar() {
 
 }
 const productosEnCarritos = [];
-
 function agregarVuelo(e) {
 
     const idBoton = e.currentTarget.id;
-
     const productoAgregado = productos.find(producto => producto.id === idBoton);
+    let productosEnCarritos = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
 
-    if (productosEnCarritos.some(producto => producto.id === idBoton)) {
-
-
-        alert("Este producto ya se encuentra en el carrito");
-
-    } else {
-
-        let productosEnCarritoGuardados = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
-
-        productosEnCarritoGuardados.push(productoAgregado);
-
-        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarritoGuardados));
-
+    if (productosEnCarritos.find(producto => producto.id === idBoton)) {
         Swal.fire({
             position: 'top-end',
-            icon: 'success',
-            title: 'Agregaste este Vuelo.',
+            icon: 'warning',
+            title: 'Reserva previa encontrada',
             showConfirmButton: false,
             timer: 1500
         })
-
-        productoEnCarrito.push(productoAgregado);
+    } else {
+        productosEnCarritos.push(productoAgregado);
+        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarritos));
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Reserva exitosa.',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 }
 
@@ -293,18 +295,19 @@ function agregarVuelo(e) {
 
 
 
+function filtrarProductos() {
+    const origenSeleccionado = document.getElementById('origen').value.toLowerCase();
+    const destinoSeleccionado = document.getElementById('destino').value.toLowerCase();
+
+    const productosFiltrados = productos.filter(producto => {
+        return producto.origen.toLowerCase() === origenSeleccionado && producto.destino.toLowerCase() === destinoSeleccionado;
+    });
+
+    console.log(productosFiltrados); // Puedes imprimir los resultados en la consola o mostrarlos en la página
+}
 
 
-
-
-
-
-
-
-
-
-
-
+filtrarProductos();
 
 
 

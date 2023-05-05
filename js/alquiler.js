@@ -105,7 +105,7 @@ function cargarProductos() {
             <td class="dautodes">${auto.descripcion}</td>
             <td>${auto.modelo}</td>
             <td>${auto.año}</td>
-            <td><button id="${auto.id}" class="auto-agregar comprarVuelo">Comprar USD <span class="precioDelAuto">${auto.precio}</span></button></td>
+            <td><button id="${auto.id}" class="auto-agregar comprarVuelo">Alquilar USD <span class="precioDelAuto">${auto.precio}</span></button></td>
         `;
         contenedorAutos.appendChild(tr);
     });
