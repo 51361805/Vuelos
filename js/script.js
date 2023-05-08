@@ -124,9 +124,9 @@ function validarFormulario(evento) {
         alert('La fecha de regreso no puede ser menor que la fecha de partida.');
         return;
     }
-
+    filtrarProductos();
     // Si se llega hasta aquí, el formulario es válido
-    alert('El formulario es válido y se puede enviar.');
+    alert('En busqueda del vuelo.');
 }
 
 function validarOpcionIda() {
@@ -221,9 +221,16 @@ const productos = [
 
 
 
+
+
 let botonesAgregar = document.querySelectorAll(".producto-agregar")
 
 const contenedorViajes = document.querySelector("#contenedorVuelosD");
+
+
+
+
+
 
 
 function cargarProductos() {
@@ -239,17 +246,28 @@ function cargarProductos() {
         <td>${producto.destino}</td>
         <td><button id="${producto.id}" class="producto-agregar comprarVuelo">Reservar USD <span class="precioDelVuelo">${producto.precio}</span></button></td>
       `;
-
         contenedorViajes.appendChild(tr);
-
-
     });
 
-
     actualizarBotonesAgregar();
-}
-
+};
 cargarProductos();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function actualizarBotonesAgregar() {
@@ -261,7 +279,10 @@ function actualizarBotonesAgregar() {
     });
 
 }
+
+
 const productosEnCarritos = [];
+
 function agregarVuelo(e) {
 
     const idBoton = e.currentTarget.id;
@@ -295,22 +316,52 @@ function agregarVuelo(e) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function filtrarProductos() {
     const origenSeleccionado = document.getElementById('origen').value.toLowerCase();
     const destinoSeleccionado = document.getElementById('destino').value.toLowerCase();
-
     const productosFiltrados = productos.filter(producto => {
         return producto.origen.toLowerCase() === origenSeleccionado && producto.destino.toLowerCase() === destinoSeleccionado;
     });
+    console.log(productosFiltrados);
 
-    console.log(productosFiltrados); // Puedes imprimir los resultados en la consola o mostrarlos en la página
-}
+    // Actualiza la tabla HTML con los resultados
+    const tabla = document.getElementById('tablaProductos');
+    tabla.innerHTML = '';
+    productosFiltrados.forEach(producto => {
+        tabla.innerHTML += `
+       
+     <div class="viajeseguro">
+       <div class="viajeseguro-img">
+        <img class="imgseguro" src="${producto.imagen}" alt="">
+       </div>
+       <div class="viajeseguro-info">
+        <h2>Viaja seguro a ${producto.destino}</h2>
+        <p>${producto.descripcion}</p>
+        <div class="viajeseguro-detalles">
+            <p><strong>Origen:</strong> ${producto.origen}</p>
+            <p><strong>Destino:</strong> ${producto.destino}</p>
+            <p><strong>Precio:</strong> Desde $${producto.precio} USD</p>
+         </div>
+         <button  id="${producto.id}"class="viajeseguro-btn">Reservar ahora</button>
+        </div>
+     </div> `;
 
 
-filtrarProductos();
-
-
-
+    });
+};
 
 
 

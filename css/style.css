@@ -667,7 +667,7 @@ ul {
 
 .imglugar {
 
-    max-width: 200px;
+    max-width: 180px;
 }
 
 .fixed-background {
@@ -771,6 +771,7 @@ td {
 
 .compra-input-personas,
 .compra-input-equipaje,
+.compra-input-identificaciones,
 .compra-input-menores,
 .compra-input-mascotas,
 .compra-input-maletas,
@@ -781,12 +782,14 @@ td {
     font-size: 16px;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px grey solid;
 }
 
 .compra-info input[type="number"] {
     width: 50px;
     text-align: center;
+    border: 1px grey solid;
+
 }
 
 .compra-info select {
@@ -819,11 +822,13 @@ td {
 
 .izquierdo {
 
-    background-color: #f7f7f700;
+    background-color: #f7f7f75c;
     border: 1px solid #1f1e1e;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
+
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -833,12 +838,14 @@ td {
 
 
 .comprarVuelo:hover {
-  background-color: #130cc75c;;
+    background-color: #130cc75c;
+    ;
 }
 
 
 .producto-agregar {
-    background-color: #2422625c;;
+    background-color: #2422625c;
+    ;
     border-radius: 10px;
 
 }
@@ -986,26 +993,30 @@ td:nth-child(5) {
     font-size: 14px;
 }
 
-.imgcarritook{
-    max-height: 400px;
+.imgcarritook {
+max-height: 500px;
     width: auto;
     border-radius: 5px;
 
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.50);
     margin: 10px;
+    display: inline-block;
 }
 
 
 @media (max-width:550px) {
-    .imgcarritook ,.iconoauto{
-       width: 100%;
-       padding: 10px;
-       padding-left: -10px;
+
+    .imgcarritook,
+    .iconoauto {
+        width: 100%;
+        padding: 10px;
+        padding-left: -10px;
     }
 
 }
 
-.compra-origen ,.compra-destino{
+.compra-origen,
+.compra-destino {
     font-size: 15px;
     font-weight: 600;
 }
@@ -1019,7 +1030,7 @@ td:nth-child(5) {
     border: none;
 }
 
-.total-precio{
+.total-precio {
     background-color: #4CAF50;
     padding: 5px 20px;
     border: none;
@@ -1034,17 +1045,113 @@ td:nth-child(5) {
     color: white;
 }
 
-.compra-precio-total{
+.compra-precio-total {
     font-size: 25PX;
     color: red;
     font-weight: 600;
 }
 
-.totviaje{
+.totviaje {
     font-size: 25px;
     color: red;
 }
-.compra-origen , .compra-destino{
+
+.compra-origen,
+.compra-destino {
     font-size: 20px;
     color: red;
+}
+
+.viajeseguro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+.viajeseguro-img {
+    width: 40%;
+    margin-right: 20px;
+
+}
+
+.viajeseguro-img img {
+    width: 100%;
+    height: auto;
+}
+
+.viajeseguro-info {
+    width: 60%;
+}
+
+.viajeseguro h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.imgseguro {
+    border-radius: 10px;
+}
+
+.viajeseguro p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.viajeseguro-detalles {
+    margin-bottom: 10px;
+}
+
+.viajeseguro-detalles p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.viajeseguro-detalles strong {
+    font-weight: bold;
+}
+
+.viajeseguro-btn {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.viajeseguro-btn:hover {
+    background-color: #005F6B;
+}
+
+.doble {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logovuelo {
+    width: 150px;
+    float: right;
+    margin-right: 50px;
+}
+.qr{
+    width: 200px;
+    float:bottom;
+
+}
+
+
+@media (max-width:550px) {
+
+    .logovuelo
+     {
+      display: inline-block;
+      float: none;
+    }
+
 }
