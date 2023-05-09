@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="compra-origen"> Origen: <span class="compra-origen">${producto.origen}</span></p>
         <p class="compra-origen">Destino: <span class="compra-destino">${producto.destino}</span></p>
         <p>Descripcion: ${producto.descripcion} </p>
-        <p>Fecha de partida: <span class="compra-fecha-partida">12/06/2018</span> Hora: <span
+        <p>Fecha de partida: <span class="compra-origen">${fechaIdaValue}</span> Hora: <span
                 class="compra-hora-partida">10:00</span></p>
-        <p>Fecha de regreso: <span class="compra-fecha-regreso">22/05/2018</span> Hora: <span
+        <p>Fecha de regreso: <span class="compra-origen">${fechaVueltaValue}</span> Hora: <span
                 class="compra-hora-regreso">16:00</span></p>
         <p class="compra-personas">Cantidad de personas: <input id="miInput" type="number"
                 class="compra-input-personas" min="1" max="10" value="${producto.cantidadPersonas}"></p>
@@ -130,7 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cargarProductosCarrito();
 });
+const fechaIdaValue = localStorage.getItem("fechaIdaValue");
+console.log("El valor de fechaIdaValue es: " + fechaIdaValue);
 
+
+const fechaVueltaValue= localStorage.getItem("fechaVueltaValue");
+console.log("El valor de fechaVueltaValue es: " + fechaVueltaValue);
 
 
 

@@ -78,8 +78,9 @@
     </div>
 
     <main>
+        <img class="logovuelo" src="./img/logodos.png" alt="">
         <h1 class="titulo">Busqueda de Vuelos Ignacio Bon</h1>
-        
+
         <form class="decoracion" id="formulario">
             <label class="radiolabel">
                 <input type="radio" name="opcion" value="opcion1"> Solo Ida
@@ -92,6 +93,10 @@
             <label for="origen"></label>
             <select id="origen" class="lugar origen" name="origen">
                 <option value="Argentina">Argentina</option>
+                <option value="Chile">Chile</option>
+                <option value="Perú">Perú</option>
+                <option value="México">México</option>
+                <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
                 <option value="Colombia">Colombia</option>
                 <option value="Estados Unidos">Estados Unidos</option>
@@ -102,6 +107,10 @@
 
             <label for="destino"></label>
             <select id="destino" class="lugar destino" name="destino">
+                <option value="Argentina">Argentina</option>
+                <option value="Chile">Chile</option>
+                <option value="Perú">Perú</option>
+                <option value="México">México</option>
                 <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
                 <option value="Colombia">Colombia</option>
@@ -114,59 +123,64 @@
             <input id="fechaDeIda" class="lugar fecha ida" type="date" name="fechaDeIda" id="fechaDeIda">
 
             <input id="fechaDeRegreso" class="lugar fecha vuelta" type="date" name="fechaDeRegreso" id="fechaDeRegreso">
-            
+
             <input class="lugar buscar" type="submit" value="Busca Vuelos">
         </form>
 
 
 
 
-        
 
 
-        <div class="bloque-mapa">
-            <div class="centro">
+        <div id="resultados" style="display: none;">
 
 
-                <iframe class="mapa-lugar"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58876126.16859688!2d-10.962912676526626!3d-25.753595342808737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2suy!4v1678819317380!5m2!1ses-419!2suy"
-                    height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-
-            </div>
-           
-
-            <div class="container">
+            <h4 class="titulo">No te quedes con una opción: Búsquedas relacionadas</h4>
+            <div class="bloque-mapa">
+                <div class="centro">
 
 
+                    <iframe class="mapa-lugar"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58876126.16859688!2d-10.962912676526626!3d-25.753595342808737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2suy!4v1678819317380!5m2!1ses-419!2suy"
+                        height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
 
-                <div class="row">
-                    <div class="col-xs-8">
-                        <table class="table table-earnings table-earnings__challenge">
-                            <thead>
-                                <tr>
-                                    <th>Imagen</th>
-                                    <th>Descripcion</th>
-                                    <th>Origen</th>
-                                    <th>Destino</th>
-                                    <th>Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody class="vuelo" id="contenedorVuelosD">
+                </div>
 
 
-                            </tbody>
-                        </table>
+                <div class="container">
+
+
+
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <table class="table table-earnings table-earnings__challenge">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Descripcion</th>
+                                        <th>Origen</th>
+                                        <th>Destino</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="vuelo" id="contenedorVuelosD">
+
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
+
         <div id="tablaProductos">
 
-    
+
 
         </div>
 
