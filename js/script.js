@@ -139,6 +139,8 @@ function validarOpcionIdaVuelta() {
     fechaVuelta.disabled = false;
 }
 
+const fechaIdaValue = fechaIda.value;
+const fechaVueltaValue = fechaVuelta.value;
 
 
 const productos = [
@@ -149,6 +151,7 @@ const productos = [
         imagen: "./img/buenos-aires.jpg",
         imagen2: "../img/buenos-aires.jpg",
         precio: "1740",
+
         descripcion: "Disfruta de una escapada de fin de semana en Buenos Aires, la ciudad de la furia. Con este vuelo podrás conocer la cultura, historia y gastronomía porteña de la mano de los expertos locales. No te pierdas de sus atractivos turísticos como el Obelisco, la Casa Rosada, el Teatro Colón, la Recoleta y mucho más.",
 
     },

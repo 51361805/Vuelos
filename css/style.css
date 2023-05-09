@@ -1034,7 +1034,7 @@ max-height: 500px;
     background-color: #4CAF50;
     padding: 5px 20px;
     border: none;
-    height: 50px;
+    height: 40px;
     border-radius: 10px;
     cursor: pointer;
     position: fixed;
@@ -1043,6 +1043,7 @@ max-height: 500px;
     transform: translateX(-50%);
     margin: 10px;
     color: white;
+    text-decoration: none;
 }
 
 .compra-precio-total {
@@ -1154,4 +1155,161 @@ max-height: 500px;
       float: none;
     }
 
+}
+
+
+.valor {
+    width: 100px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 0px 10px;
+}
+
+.retiro {
+    font-size: 22px;
+    font-weight: 100;
+    padding-left: 20px;
+}
+
+.rer {
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+
+
+.contenedor {
+    width: 500px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.tarjeta {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .2s;
+}
+
+.tarjeta:hover {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  
+    border-radius: 15px;
+}
+
+
+.logo {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.chip {
+    margin-top: 50px;
+    margin-left: 15px;
+}
+
+.numero {
+
+    text-align: center;
+    font-size: 1.5em;
+    color: #FFF;
+    letter-spacing: 3px;
+}
+.front {
+    background-color: #002447;
+  }
+
+
+  .back {
+    transform: rotateY(180deg);
+    background-color: #002447;
+  }
+
+.info {
+    margin-top: 25px;
+    margin-left: 25px;
+    color: #FFF;
+    font-size: 0.8em;
+
+}
+
+.logo-dos-tar {
+    width: 150px;
+}
+
+.chip-tarjeta {
+    width: 70px;
+}
+
+
+.nombretar {
+    padding: 10px;
+}
+
+.numtar {
+    background-color: transparent;
+    height: 20px;
+    color: white;
+    border: solid 1px white;
+    border-radius: 5px;
+}
+
+.CVV {
+    width: 50px;
+}
+
+.centarj {
+    display: flex;
+    justify-content: center;
+}
+
+
+.barra{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+
+.tarjeta-pago{
+    width: 100%;
+    background-color: #f8faff4d;
+    border-radius: 10px;
+}
+
+.tabla-tarjeta{
+    display: flex;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+.tea{
+    display: block;
+}
+
+.pag{
+    font-size: 12px;
+    color: white;
+    text-align: center;
+}
+.ladocuota{
+    padding-left: 90px;
+}
+.tre{margin-bottom: 5px;}
+
+.pagese{
+    margin: 0;
+    margin-top: 50px;
 }
