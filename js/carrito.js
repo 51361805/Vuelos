@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productosEnCarrito.forEach((producto, i) => {
         const div = document.createElement("div");
         div.classList.add("izquierdo");
-        div.innerHTML = `
+        div.innerHTML += `
         <div class="cont-img-carrito">
 
         <img class="logovuelo" src="../img/logodos.png" alt="">
@@ -21,11 +21,24 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>Usted ha reservado un vuelo:</h3>
         <p class="compra-origen"> Origen: <span class="compra-origen">${producto.origen}</span></p>
         <p class="compra-origen">Destino: <span class="compra-destino">${producto.destino}</span></p>
-        <p>Descripcion: ${producto.descripcion} </p>
+        <p class="pDescripcion">Descripcion: ${producto.descripcion} </p>
         <p>Fecha de partida: <span class="compra-origen">${fechaIdaValue}</span> Hora: <span
-                class="compra-hora-partida">10:00</span></p>
+        class="compra-origen">10:00</span></p>
         <p>Fecha de regreso: <span class="compra-origen">${fechaVueltaValue}</span> Hora: <span
-                class="compra-hora-regreso">16:00</span></p>
+        class="compra-origen">16:00</span></p>
+
+    
+    
+    
+        <div id="fechas" style="display:none;">
+            <label for="fechaPartida">Fecha de partida:</label>
+            <input type="date" id="fechaPartida" name="fechaPartida">
+    
+            <label for="fechaRegreso">Fecha de regreso:</label>
+            <input type="date" id="fechaRegreso" name="fechaRegreso">
+    
+        </div>
+    
         <p class="compra-personas">Cantidad de personas: <input id="miInput" type="number"
                 class="compra-input-personas" min="1" max="10" value="${producto.cantidadPersonas}"></p>
         <!-- ... -->
@@ -59,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 </select>
             </p>
             <h5>Precio del viaje Por Persona: <span class="compra-precio">${producto.precio}</span></h5>
-        </div>
-        <h5 class="totviaje">Precio Total del viaje: <span class="compra-precio-total"> </span></h5>
+         </div>
+         <h5 class="totviaje">Precio Total del viaje: <span class="compra-precio-total"> </span></h5>
         <img class="imgcarritook" src="${producto.imagen2}" alt="destino">
       
         <br>
@@ -69,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
          
         
 
-    </div>
+        </div>
         `;
         contenedorProductos.appendChild(div);
 
@@ -93,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
               productosEnCarrito.splice(index, 1);
               localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
               div.remove();
-    
+
               Swal.fire(
                 'Eliminado!',
                 'La reserva ha sido eliminada correctamente.',
@@ -102,6 +115,45 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           })
         });
+
+
+        
+      });
+
+
+      //modificar fechas..................
+
+
+
+      const modificarFechas = document.getElementsByName("modificarFechas");
+      const fechasDiv = document.getElementById("fechas");
+
+      for (let i = 0; i < modificarFechas.length; i++) {
+
+        modificarFechas[i].addEventListener("click", function () {
+
+          if (modificarFechas[i].value === "si") {
+
+            fechasDiv.style.display = "block";
+
+          } else {
+
+            fechasDiv.style.display = "none";
+          }
+        });
+      };
+
+
+      const fechaPartida = document.getElementById("fechaPartida");
+
+      fechaPartida.addEventListener("change", function () {
+
+        const fechPartida = fechaPartida.value;
+        const fechaCambiada = fechaIdaValue;
+
+        fechaCambiada.textContent = fechPartida;
+
+
       });
 
 
@@ -110,18 +162,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       miInput.addEventListener("change", () => {
         const cantidad = miInput.value;
-        const div = miInput.parentNode.parentNode; // Obtener el div padre
+        const div = miInput.parentNode.parentNode;
         const precioSpan = div.querySelector(".compra-precio");
         const precioTotalSpan = div.querySelector(".compra-precio-total");
-        const precio = parseFloat(precioSpan.textContent); // Obtener el precio como número
+        const precio = parseFloat(precioSpan.textContent);
         const precioTotal = precio * cantidad;
         precioTotalSpan.textContent = precioTotal;
         const elPrecioTotal = document.getElementById("elPrecioTotal")
         elPrecioTotal.textContent = precioTotal;
+
+        localStorage.setItem("elPrecioTotal", precioTotal)
+        console.log(precioTotal);
       });
-
-
-
 
       actualizarBotonesEliminar();
       actualizarTotal();
@@ -129,13 +181,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   cargarProductosCarrito();
+
+
 });
+
 const fechaIdaValue = localStorage.getItem("fechaIdaValue");
 console.log("El valor de fechaIdaValue es: " + fechaIdaValue);
 
 
-const fechaVueltaValue= localStorage.getItem("fechaVueltaValue");
+const fechaVueltaValue = localStorage.getItem("fechaVueltaValue");
 console.log("El valor de fechaVueltaValue es: " + fechaVueltaValue);
+
+
 
 
 
@@ -252,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
 
 
-         
+
         });
 
       });
@@ -268,21 +325,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const btnPagar = document.getElementById("btnPagar");
+const numTarjeta = document.getElementById("numTarjeta");
+const nombreTitular = document.getElementById("nombreTitular");
+const fechaVencimiento = document.getElementById("fechaVencimiento");
+const cvv = document.getElementById("cvv");
+const formularioEnvio = document.getElementById("formularioEnvio");
+const cuotas = document.getElementsByName("cuotas");
+const cero = document.getElementById("resumenCompra");
+
+
+
+btnPagar.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  if (numTarjeta.value === "") {
+    Swal.fire('Por favor, ingrese el número de tarjeta.');
+    return;
+  }
+
+  if (nombreTitular.value === "") {
+    Swal.fire('Por favor, ingrese el nombre del titular.');
+    return;
+  }
+
+  if (fechaVencimiento.value === "") {
+    Swal.fire('Por favor, ingrese la fecha de vencimiento.');
+    return;
+  }
+
+  if (cvv.value === "") {
+    Swal.fire('Por favor, ingrese el código de seguridad (CVV).');
+    return;
+  }
+
+  let cuotasSeleccionadas = false;
+  for (let i = 0; i < cuotas.length; i++) {
+    if (cuotas[i].checked) {
+      cuotasSeleccionadas = true;
+      break;
+    }
+  }
+
+  if (!cuotasSeleccionadas) {
+    Swal.fire('Por favor, seleccione una opción de cuotas.');
+    return;
+  }
 
 
 
 
+  localStorage.clear();
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Su Vuelo Fue Reservado Con Exito.',
+    showConfirmButton: false,
+    timer: 1500,
+
+  })
 
 
 
-
-
-
-
-
-
-
-
-
+});
 
 
