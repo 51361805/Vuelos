@@ -370,16 +370,22 @@ function filtrarProductos() {
     });
     if (productosFiltrados.length === 0) {
 
-        
 
-      alert("Lo sentimos, no se encontraron vuelos para los filtros seleccionados. Sin embargo, tenemos más opciones disponibles.")
-      
+
+        alert("Lo sentimos, no se encontraron vuelos para los filtros seleccionados. Sin embargo, tenemos más opciones disponibles.")
+
     };
-  
+
+
+
+
 
     // Actualiza la tabla HTML con los resultados
     const tabla = document.getElementById('tablaProductos');
+
+
     tabla.innerHTML = '';
+
     productosFiltrados.forEach(producto => {
         tabla.innerHTML += `
        
@@ -393,8 +399,8 @@ function filtrarProductos() {
         <div class="viajeseguro-detalles">
             <p><strong>Origen:</strong> ${producto.origen}</p>
             <p><strong>Destino:</strong> ${producto.destino}</p>
-            <p><strong>Fecha Partida:</strong> ${fechaIdaValue}</p>
-            <p><strong>Fecha Regreso:</strong> ${fechaVueltaValue}</p>
+            <p><strong>Fecha Partida:</strong> ${fechaIda.value}</p>
+            <p><strong>Fecha Regreso:</strong> ${fechaVuelta.value}</p>
             <p><strong>Precio:</strong> Desde $${producto.precio} USD</p>
          </div>
          <button  id="${producto.id}"class=" producto-agregar viajeseguro-btn">Reservar ahora</button>
@@ -405,7 +411,6 @@ function filtrarProductos() {
 
     });
 };
-
 
 
 
@@ -470,7 +475,7 @@ function agregarVuelo(e) {
 fechaIda.addEventListener("change", function () {
     const fechaIdaValue = fechaIda.value;
     localStorage.setItem("fechaIdaValue", fechaIdaValue);
-    console.log(fechaIdaValue);
+
 });
 
 
@@ -478,10 +483,105 @@ fechaVuelta.addEventListener("change", function () {
 
     const fechaVueltaValue = fechaVuelta.value;
     localStorage.setItem("fechaVueltaValue", fechaVueltaValue);
-    console.log(fechaVueltaValue);
+
 });
 
 
 
 
+document.getElementById('destino').addEventListener("change", function () {
+    const climaDestino = this.value.toLowerCase();
 
+
+
+
+
+    const apiKey = '6176377ce6df3ddd316c92fedbcddc6b';
+    const city = climaDestino;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const weatherContainer = document.getElementById('weather-container');
+
+
+            const cityName = data.name;
+            const temperature = Math.round(data.main.temp - 273.15);
+            const description = data.weather[0].description;
+            const humidity = data.main.humidity;
+            const windSpeed = data.wind.speed;
+            const pressure = data.main.pressure;
+            const weatherIcon = data.weather[0].icon;
+
+
+            const iconClass = getWeatherIconClass(weatherIcon);
+
+
+            const weatherHTML = `
+            <h2 class="temperature">${cityName}</h2>
+            <p class="temperature"><i class="fas fa-thermometer-half"></i> ${temperature}°C</p>
+            <i class="wi ${iconClass} weather-icon"></i>
+            <p class="description">${description}</p>
+            <p class="additional-info"><i class="fas fa-tint"></i> Humedad: ${humidity}%</p>
+            <p class="additional-info"><i class="fas fa-wind"></i> Velocidad del viento: ${windSpeed} m/s</p>
+            <p class="additional-info"><i class="fas fa-compress"></i> Presión atmosférica: ${pressure} hPa</p>
+    `;
+
+
+            weatherContainer.innerHTML = weatherHTML;
+        })
+        .catch(error => {
+            const weatherContainer = document.getElementById('weather-container');
+            weatherContainer.innerHTML = 'Error al obtener los datos del clima.';
+
+        });
+
+
+    function getWeatherIconClass(iconCode) {
+        switch (iconCode) {
+            case '01d':
+                return 'wi-day-sunny';
+            case '01n':
+                return 'wi-night-clear';
+            case '02d':
+                return 'wi-day-cloudy';
+            case '02n':
+                return 'wi-night-cloudy';
+            case '03d':
+            case '03n':
+            case '04d':
+            case '04n':
+                return 'wi-cloudy';
+            case '09d':
+            case '09n':
+                return 'wi-showers';
+            case '10d':
+            case '10n':
+                return 'wi-rain';
+            case '11d':
+            case '11n':
+                return 'wi-thunderstorm';
+            case '13d':
+            case '13n':
+                return 'wi-snow';
+            case '50d':
+            case '50n':
+                return 'wi-fog';
+            default:
+                return 'wi-na';
+        }
+    }
+
+});
+
+var agradecimiento = document.getElementById('agradecimiento');
+var cerrar = document.getElementById('cerrar');
+
+cerrar.addEventListener('click', function () {
+    agradecimiento.style.display = 'none';
+});
+
+setTimeout(function () {
+    agradecimiento.style.display = 'block';
+}, 8000);

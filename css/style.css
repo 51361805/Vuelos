@@ -1356,3 +1356,83 @@ td:nth-child(5) {
     font-size: 15px;
 }
 
+.clima {
+    background-color: #130cc75c;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cargando {
+    margin: 5px;
+}
+
+.additional-info,
+.temperature,
+.description {
+    margin: 0px 15px;
+}
+
+.titclima {
+    text-align: center;
+}
+
+.city-name {
+    font-weight: bold;
+}
+
+.temperature {
+    font-size: 20px;
+}
+
+
+
+.description {
+    font-style: italic;
+}
+
+.additional-info {
+    margin-bottom: 10px;
+}
+
+.weather-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+
+#agradecimiento {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e9cfcf;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+
+#agradecimiento img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+#agradecimiento h2 {
+    margin-bottom: 10px;
+}
+
+#agradecimiento p {
+    color: #888;
+}

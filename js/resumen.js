@@ -3,7 +3,7 @@
 
 const resumenCompra = document.getElementById("resumenCompra");
 const elPrecioTotal = localStorage.getItem("elPrecioTotal");
-console.log(elPrecioTotal);
+
 resumenCompra.textContent = elPrecioTotal.toString();
 
 const importeCuotaUno = document.getElementById("importeCuotaUno");

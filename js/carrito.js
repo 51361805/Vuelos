@@ -117,8 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        
+
       });
+
+
 
 
       //modificar fechas..................
@@ -172,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elPrecioTotal.textContent = precioTotal;
 
         localStorage.setItem("elPrecioTotal", precioTotal)
-        console.log(precioTotal);
+
       });
 
       actualizarBotonesEliminar();
@@ -186,11 +188,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const fechaIdaValue = localStorage.getItem("fechaIdaValue");
-console.log("El valor de fechaIdaValue es: " + fechaIdaValue);
+
 
 
 const fechaVueltaValue = localStorage.getItem("fechaVueltaValue");
-console.log("El valor de fechaVueltaValue es: " + fechaVueltaValue);
+
 
 
 
@@ -375,6 +377,8 @@ btnPagar.addEventListener("click", function (event) {
 
 
 
+  descargarCodigoQR();
+
   localStorage.clear();
   Swal.fire({
     position: 'top-end',
@@ -390,3 +394,27 @@ btnPagar.addEventListener("click", function (event) {
 });
 
 
+
+
+function descargarCodigoQR() {
+  var qrData = "Boletos De Vuelo";
+
+  var canvas = document.createElement('canvas');
+
+  var qr = new QRious({
+    element: canvas,
+    value: qrData
+  });
+
+  var qrImage = qr.toDataURL();
+
+  var link = document.createElement('a');
+  link.href = qrImage;
+  link.download = 'BoletosVuelo.png';
+
+  document.body.appendChild(link);
+
+  link.click();
+
+
+}
